@@ -1,0 +1,54 @@
+<mat-card style="margin: 20px; padding: 20px;">
+
+    <div style="display: flex; padding: 10px; justify-content: center; flex-direction: column;">
+        <h1><b>Add new book</b></h1>
+        <form [formGroup]="addBookForm" style="display: flex; justify-content: space-between; flex-direction: row;">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Book Id</mat-label>
+                <input matInput placeholder="Book Id" formControlName="bookId">
+                <mat-error *ngIf="addBookForm.get('bookId')?.hasError('required')">
+                    Book ID is required
+                </mat-error>
+                <mat-error *ngIf="addBookForm.get('bookId')?.hasError('bookId')">
+                    Book Id should have 'BK' at first and then three digit number
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Book Name</mat-label>
+                <input matInput placeholder="Book name" formControlName="name">
+                <mat-error *ngIf="addBookForm.get('name')?.hasError('required')">
+                    Book name is required
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Author</mat-label>
+                <input matInput placeholder="Author" formControlName="author">
+                <mat-error *ngIf="addBookForm.get('author')?.hasError('required')">
+                    Author name is required
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Price" formControlName="price">
+                <mat-error *ngIf="addBookForm.get('price')?.hasError('required')">
+                    Book price is required
+                </mat-error>
+                <mat-error *ngIf="addBookForm.get('price')?.hasError('numeric')">
+                    Book price should be a number
+                </mat-error>
+            </mat-form-field>
+
+        </form>
+    </div>
+
+    <div style="display: flex; justify-content: space-between;">
+        <span></span>
+        <button mat-raised-button color="primary" style="width: 210px;" (click)="addBook()" [disabled]="addBookForm.invalid">Add Book</button>
+        <span></span>
+    </div>
+    
+</mat-card>

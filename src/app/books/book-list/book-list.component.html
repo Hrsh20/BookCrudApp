@@ -1,0 +1,58 @@
+<mat-card style="padding: 10px;">
+  <div *ngIf="listBooks">
+    <table mat-table [dataSource]="listBooks" class="mat-elevation-z8" style="border-radius: 20px;">
+
+      <!-- Book-Id Column -->
+      <ng-container matColumnDef="bookId">
+        <th mat-header-cell *matHeaderCellDef> Book-Id </th>
+        <td mat-cell *matCellDef="let book"> {{ book.bookId }} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let book"> <a class="action-link" [routerLink]="['viewBook', book.bookId]">{{
+            book.name
+            }}</a> </td>
+      </ng-container>
+
+      <!-- Author Column -->
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef> Author </th>
+        <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let book"> {{ book.price }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="creationDateTime">
+        <th mat-header-cell *matHeaderCellDef> Creation Date </th>
+        <td mat-cell *matCellDef="let book"> {{ book.creationDateTime }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="modificationDateTime">
+        <th mat-header-cell *matHeaderCellDef> Modification Date </th>
+        <td mat-cell *matCellDef="let book"> {{ book.modificationDateTime }} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let book">
+          <button mat-icon-button [routerLink]="['editBook', book.bookId]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button [routerLink]="['deleteBook', book.bookId]">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</mat-card>

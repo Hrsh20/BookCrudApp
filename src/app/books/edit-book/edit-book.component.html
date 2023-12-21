@@ -1,0 +1,39 @@
+<div *ngIf="book">
+    <mat-card style="margin: 20px; padding: 20px;">
+        <div style="display: flex; padding: 10px; justify-content: center; flex-direction: column;">
+            <h1><b>Edit {{ book.name }}</b></h1>
+            <form [formGroup]="editBookForm"
+                style="display: flex; justify-content: space-between; flex-direction: row;">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Book Id</mat-label>
+                    <input matInput placeholder="{{ bookId }}" formControlName="bookId" readonly>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Book Name</mat-label>
+                    <input matInput placeholder="{{ book.name }}" formControlName="name">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Author</mat-label>
+                    <input matInput placeholder="{{ book.author }}" formControlName="author">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input matInput placeholder="{{ book.price }}" formControlName="price">
+                    <mat-error *ngIf="editBookForm.get('price')?.hasError('numeric')">
+                        Book price should be a number
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <span></span>
+            <button mat-raised-button color="primary" style="justify-content: center; width: 210px;"
+                (click)="editBook()" [disabled]="editBookForm.invalid">Update Book</button>
+            <span></span>
+        </div>
+    </mat-card>
+</div>

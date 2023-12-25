@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddMulitpleBookComponent } from './add-mulitple-book/add-mulitple-book.component';
 
 
 
@@ -25,7 +26,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
     BookComponent,
     AddBookComponent,
     EditBookComponent,
-    DeleteBookComponent
+    DeleteBookComponent,
+    AddMulitpleBookComponent
   ],
   imports: [
     CommonModule,

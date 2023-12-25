@@ -5,6 +5,7 @@ import { BookComponent } from './books/book/book.component';
 import { AddBookComponent } from './books/add-book/add-book.component';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
 import { DeleteBookComponent } from './books/delete-book/delete-book.component';
+import { AddMulitpleBookComponent } from './books/add-mulitple-book/add-mulitple-book.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
     path: 'addBook',
     component: AddBookComponent
   },
+
+  {
+    path: 'addMultipleBook',
+    component: AddMulitpleBookComponent
+  }
   
 ];
 

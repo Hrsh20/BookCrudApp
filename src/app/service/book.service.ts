@@ -31,4 +31,8 @@ export class BookService {
   editBook(book: Object) {
     return this.httpClient.put(this.baseUrl + 'updateBook', book);
   }
+
+  addMultipleBooks(books: Array<any>) {
+    return this.httpClient.post(this.baseUrl + 'addBooks', books);
+  }
 }

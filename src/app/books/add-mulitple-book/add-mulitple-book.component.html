@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <th>Book Id</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of bookArray; let i = index">
+            <td><input type="text" [(ngModel)]="bookArray[i].bookId"></td>
+            <td><input type="text" [(ngModel)]="bookArray[i].name"></td>
+            <td><input type="text" [(ngModel)]="bookArray[i].author"></td>
+            <td><input type="text" [(ngModel)]="bookArray[i].price"></td>
+            <td><button mat-icon-button (click)="removeBookFromArray(i)"><mat-icon>delete</mat-icon></button></td>
+        </tr>
+    </tbody>
+</table>
+<div style="display: flex; justify-content: end; margin: 2%;">
+    <button mat-raised-button style="margin-left: 1%" color="primary" (click)="addNewBookToArray()">Add Book</button>
+    <button mat-raised-button style="margin-left: 1%" color="primary" (click)="submitBooks()">Submit Books</button>
+</div>
